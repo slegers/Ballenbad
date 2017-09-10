@@ -2,8 +2,6 @@ package deel2.ui;
 
 import java.awt.Color;
 import java.awt.GridLayout;
-import java.awt.event.ItemEvent;
-import java.awt.event.ItemListener;
 
 import javax.swing.BorderFactory;
 import javax.swing.JComboBox;

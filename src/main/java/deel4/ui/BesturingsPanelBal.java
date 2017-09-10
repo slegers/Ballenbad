@@ -1,9 +1,12 @@
-package deel3.ui;
+package deel4.ui;
 
 import java.awt.Color;
 import java.awt.GridLayout;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
+import java.security.Key;
 
 import javax.swing.BorderFactory;
 import javax.swing.JComboBox;
@@ -16,12 +19,8 @@ import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 
 
-import deel3.domain.BallenVeld;
-import deel3.domain.BewegendeCirkel;
-import deel3.domain.Cirkel;
-import deel3.domain.HorizontaleBaan;
-import deel3.domain.IBaan;
-import deel3.domain.VertikaleBaan;
+import com.sun.webkit.dom.KeyboardEventImpl;
+import deel4.domain.*;
 
 public class BesturingsPanelBal extends JPanel{
 	//elke bal kan 4 snelheiden hebben (1=zeer snel- 4=zeer traag
@@ -29,7 +28,7 @@ public class BesturingsPanelBal extends JPanel{
 	private final static int MIN_SNELHEID =4;
 	private final static int START_SNELHEID =1;
 	//elke bal kan volgende banen hebben
-	private static final String[] banen = {"horizontaal","verticaal"};
+	private static final String[] banen = {"horizontaal","verticaal", "diagonaal"};
 		
 	private JSpinner snelheidControl;
 	private JComboBox<String> baanControl;
@@ -74,12 +73,15 @@ public class BesturingsPanelBal extends JPanel{
 	        		 else{
 	        			 if (banen[baanControl.getSelectedIndex()].equals("verticaal")){
 		        			baan = new VertikaleBaan(cirkel.getMiddelPunt().getX(),cirkel.getMiddelPunt().getY());
-		        		 }	        		 	 
+		        		 }else if(banen[baanControl.getSelectedIndex()].equals("diagonaal")){
+							 baan = new SchuinBaan(cirkel.getMiddelPunt().getX(),cirkel.getMiddelPunt().getY());
+						 }
 	        		 }	 
 	        		 cirkel.setBaan(baan);
 	        	 }	 
 	         }
-	     });		
+	     });
+
 		 this.add(new JLabel("Baan bal"));
 		 this.add(baanControl);
 	}

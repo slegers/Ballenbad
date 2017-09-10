@@ -1,4 +1,4 @@
-package deel4.ui;
+package deel3.ui;
 
 import java.awt.Color;
 import java.awt.GridLayout;
@@ -16,12 +16,11 @@ import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 
 
-import deel4.domain.BallenVeld;
-import deel4.domain.BewegendeCirkel;
-import deel4.domain.Cirkel;
-import deel4.domain.HorizontaleBaan;
-import deel4.domain.IBaan;
-import deel4.domain.VertikaleBaan;
+import deel3.domain.BallenVeld;
+import deel3.domain.BewegendeCirkel;
+import deel3.domain.HorizontaleBaan;
+import deel3.domain.IBaan;
+import deel3.domain.VertikaleBaan;
 
 public class BesturingsPanelBal extends JPanel{
 	//elke bal kan 4 snelheiden hebben (1=zeer snel- 4=zeer traag

@@ -37,6 +37,19 @@ public class BallenVeld {
 			}
 		}
 	}
+    public void voegCirkelToeViaKeyBoard(){
+        //als er nog een bal kunnen toevoegen voegen we default een bal toe met:
+        //horizontale baan
+        //snelheid 1
+        //eerste vrije kleur uit BAL_KLEUREN array
+        if (cirkels.size() < getMaxAantalBallen()){
+            IBaan baan = new HorizontaleBaan(200,200);
+            Cirkel cirkel = new BewegendeCirkel(new  Punt(200,200),30,BAL_KLEUREN[cirkels.size()],1,baan,this);
+            if (!raaktRand(cirkel)){
+                cirkels.add(cirkel);
+            }
+        }
+    }
 	
 	public ArrayList<Cirkel> getCirkels(){
 		return cirkels;
@@ -66,7 +79,7 @@ public class BallenVeld {
 	public Cirkel getCirkel(int volgNr){
 		return cirkels.get(volgNr);
 	}
-	
+
 	public boolean raaktRand(Cirkel cirkel){
 		return cirkel.getMiddelPunt().getX() - cirkel.getRadius() <= 0 || cirkel.getMiddelPunt().getX() + cirkel.getRadius() >= maxX ||
 			   cirkel.getMiddelPunt().getY() - cirkel.getRadius() <= 0 || cirkel.getMiddelPunt().getY() + cirkel.getRadius() >= maxY;	

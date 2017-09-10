@@ -1,8 +1,7 @@
 package deel4.ui;
 import java.awt.Color;
 import java.awt.Graphics;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
+import java.awt.event.*;
 
 import deel4.domain.BallenVeld;
 import deel4.domain.Cirkel;
@@ -24,6 +23,25 @@ public class AnimatiePanel extends JPanel{
 			}
 		}
 		);
+		addKeyListener(new KeyListener() {
+            @Override
+            public void keyTyped(KeyEvent e) {
+
+                if(e.getKeyChar() =='n')
+                    ballenVeld.voegCirkelToeViaKeyBoard();
+                repaint();
+            }
+
+            @Override
+            public void keyPressed(KeyEvent e) {
+
+            }
+
+            @Override
+            public void keyReleased(KeyEvent e) {
+
+            }
+        });
 		gameStart();
 	}
 	
